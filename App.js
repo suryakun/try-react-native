@@ -1,19 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, Text, View, FlatList, ScrollView } from 'react-native';
+import { AppProvider } from './context/app.context'
+import TodoInput from './components/TodoInput'
+import TodoList from './components/TodoList'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <AppProvider>
+      <SafeAreaView>
+        <View>
+          <TodoInput />
+          <ScrollView>
+            <TodoList />
+          </ScrollView>
+        </View>
+      </SafeAreaView>
+    </AppProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
